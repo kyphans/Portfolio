@@ -19,11 +19,19 @@ h1.home__text{
     letter-spacing: 3px;
     color: rgba(198,201,216,.75)!important;
 }
+.wrapper-text{
+    display: inline-block;
+}
 h2.home__text{
     font-size: 54px;
     line-height: 54px;
     font-weight: 800;
     font-family: Montserrat,sans-serif;
+
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 5px solid orange;
+    animation: typing 2.5s steps(17) infinite, caret 0.5s steps(2) infinite;
 }
 h3.home__text{
     font-size: 50px;
@@ -98,4 +106,23 @@ h1.home__text {
 h4.home__text {
     font-size: 45px;
 }
+}
+
+@keyframes caret {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: orange;
+    }
+}
+
+@keyframes typing {
+    from {
+       width: 0;
+    }
+
+    to {
+        width: 110%;
+    }
 }
