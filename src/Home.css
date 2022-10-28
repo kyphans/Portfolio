@@ -8,7 +8,6 @@
 }
 li.nav__items {
     font-size: 18px;
-    padding-bottom: 15px;
 }
 .home__content {
     padding: 125px 0px;
@@ -69,7 +68,7 @@ ul.sidebar.d__flex {
     right: 0%;
     background: #010101;
     justify-content: center;
-    width: 300px;
+    width: 200px;
     top: 0%;
     flex-direction: column;
 }
@@ -107,6 +106,13 @@ li.sideNavbar {
     }
     .pz__10 {
         padding: 5px 0px;
+    }
+    .about__button.d__flex.align__items__center {
+        display: flex;
+        flex-direction: column;
+    }
+    .about.btn.pointer {
+        margin: 5px 10px;
     }
 }
 

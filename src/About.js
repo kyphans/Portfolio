@@ -3,10 +3,16 @@ import "./About.css";
 import aboutImg from "./img/about.jpg";
 function About() {
   //  Up To Top Btn
-    window.addEventListener("scroll", function(){
-      const upToTop = document.querySelector("a.bottom__to__top");
-       upToTop.classList.toggle("active", window.scrollY > 0)
-    });
+  window.addEventListener("scroll", function(){
+    const upToTop = document.querySelector("a.bottom__to__top");
+      upToTop.classList.toggle("active", window.scrollY > 0)
+  });
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
   return (
     <div className="about component__space" id="About">
       <div className="container">
@@ -47,7 +53,7 @@ function About() {
       </div>
       {/* UP TO TOP BTN */}
       <div className="up__to__top__btn">
-        <a href="#" className="bottom__to__top">
+        <a href="#" className="bottom__to__top" onClick={scrollTop}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
