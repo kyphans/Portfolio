@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { FC } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { FC } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface BlogPost {
-  id: string
-  image: string
-  category: string
-  title: string
-  slug: string
+  id: string;
+  image: string;
+  category: string;
+  title: string;
+  slug: string;
 }
 
 interface BlogProps {
-  posts?: BlogPost[]
+  posts?: BlogPost[];
 }
 
 const samplePosts = [
@@ -43,7 +43,7 @@ const samplePosts = [
 const Blog: FC<BlogProps> = ({ posts = samplePosts }) => {
   return (
     <div className="relative border-none bg-background py-20" id="Blog">
-      <div className="container mx-auto mb-52 px-4">
+      <div className="container mb-32">
         <div className="mb-12 text-center">
           <h1 className="mb-4 font-poppins text-5xl font-bold">Latest News</h1>
           <p className="text-[#c6c9d8]">
@@ -91,7 +91,7 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts }) => {
         </div>
       </div>
       <div
-        className="absolute bottom-0 right-0 z-0 w-full h-[110px]"
+        className="absolute bottom-0 right-0 z-0 h-[110px] w-full"
         style={{
           backgroundImage: `url('/divider1.svg')`,
           backgroundPositionY: "-2px",
@@ -102,6 +102,6 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts }) => {
       />
     </div>
   );
-}
+};
 
-export default Blog
+export default Blog;

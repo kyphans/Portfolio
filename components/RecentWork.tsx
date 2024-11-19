@@ -32,7 +32,7 @@ const RecentWork: FC = () => {
 
   return (
     <div className="section bg-background" id="RecentWork">
-      <div className="container px-4 md:px-10">
+      <div className="container">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-5xl font-bold">My Recent Work</h1>
           <p className="text-muted">

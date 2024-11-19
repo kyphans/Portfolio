@@ -85,7 +85,7 @@ const LanguagesIcon: FC<{ languages: Language[] }> = ({ languages }) => (
     {languages.map((lang, index) => (
       <div
         key={`${lang.name}-${index}`}
-        className="group relative mx-8 h-24 w-24 flex-shrink-0"
+        className="group relative md:mx-8 h-24 w-24 flex-shrink-0"
       >
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/0 to-primary/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:paused" />
         <Image
@@ -93,7 +93,7 @@ const LanguagesIcon: FC<{ languages: Language[] }> = ({ languages }) => (
           alt={lang.name}
           width={96}
           height={96}
-          className="object-contain p-4"
+          className="object-contain p-2 md:p-4"
           unoptimized
         />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:paused">
@@ -111,7 +111,7 @@ const ScrollRow: FC<{ direction: "left" | "right"; languages: Language[] }> = ({
   languages,
 }) => (
   <div
-    className={`${direction === "right" ? "animate-loop-scroll-right" : "animate-loop-scroll-left"} flex space-x-16`}
+    className={`${direction === "right" ? "animate-loop-scroll-right" : "animate-loop-scroll-left"} flex space-x-4 md:space-x-16`}
   >
     <LanguagesIcon languages={languages} />
   </div>
@@ -139,8 +139,10 @@ const TechStack: FC = () => {
 
   return (
     <div className="overflow-hidden bg-background py-20" id="Skills">
-      <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
+      <div className="container relative px-0">
+        <div className="absolute inset-y-0 left-0 z-40 w-20 bg-gradient-to-l from-transparent to-background" />
+        <div className="absolute inset-y-0 right-0 z-40 w-20 bg-gradient-to-r from-transparent to-background" />
+        <div className="mb-12 text-center relative z-50">
           <h1 className="mb-4 text-5xl font-bold">Technical Skills</h1>
           <p className="text-muted">
             Technologies I use in my development journey
@@ -148,9 +150,9 @@ const TechStack: FC = () => {
         </div>
 
         {/* Infinite Scroll Container */}
-        <div className="relative md:min-h-[240px] w-full">
+        <div className="relative w-full md:min-h-[240px]">
           {/* Row 1 - Left to Right */}
-          <div className="flex space-x-16 overflow-hidden">
+          <div className="flex space-x-4 md:space-x-16 overflow-hidden">
             <ScrollRow direction="left" languages={languages} />
             <ScrollRow
               direction="left"
@@ -160,7 +162,7 @@ const TechStack: FC = () => {
           </div>
 
           {/* Row 2 - Right to Left */}
-          <div className="mt-12 flex space-x-16 overflow-hidden">
+          <div className="mt-12 flex space-x-4 md:space-x-16 overflow-hidden">
             <ScrollRow direction="right" languages={languages} />
             <ScrollRow
               direction="right"

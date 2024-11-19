@@ -1,5 +1,4 @@
 
-import Image from "next/image";
 import { FC } from "react";
 
 interface HomeProps {
@@ -13,7 +12,7 @@ const Home: FC<HomeProps> = ({ backgroundImage }) => {
       id="Home"
     >
       <div
-        className="absolute inset-0 z-0 -mt-16 bg-[60%_center] md:bg-[center_center]"
+        className="absolute inset-0 z-0 -mt-16 bg-[65%_center] md:bg-[center_center]"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundRepeat: "no-repeat",
@@ -21,7 +20,7 @@ const Home: FC<HomeProps> = ({ backgroundImage }) => {
         }}
       />
 
-      <div className="container relative z-10 px-4 md:px-10">
+      <div className="container relative z-10">
         <div className="flex flex-col items-center md:items-start">
           <h1 className="text-md mb-4 font-normal tracking-[3px] text-gray-300 md:text-xl">
             WELCOME TO MY WORLD

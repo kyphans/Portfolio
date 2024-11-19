@@ -18,7 +18,7 @@ const About: FC<AboutProps> = ({ aboutImage }) => {
 
   return (
     <div className="section bg-background" id="About">
-      <div className="container px-4 md:px-10">
+      <div className="container">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           <div className="flex h-full max-h-[400px] w-full items-center justify-center">
             <Image

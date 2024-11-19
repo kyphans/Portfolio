@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
   // Fetch blog posts from your CMS here
   return (
-    <main className="container mx-auto px-4 py-12">
+    <main className="container py-12">
       <h1 className="text-4xl font-bold mb-8">Blog</h1>
       <div className="grid gap-8">
         {/* Add your blog posts list here */}

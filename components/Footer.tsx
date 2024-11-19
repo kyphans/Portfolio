@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const Footer: FC = () => {
   return (
     <footer className="bg-primary py-12 text-foreground">
-      <div className="container px-4 md:px-10">
+      <div className="container">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           {/* Left Column */}
           <div className="space-y-8">
