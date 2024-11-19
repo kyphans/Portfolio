@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 349 100% 49%;    /* #fa002e */
+  --primary-dark: 349 100% 27%;  /* #d1003f */
+  --background: 0 0% 4%;      
+  --muted: 222 17% 85%;       /* #c6c9d8 */
+  --foreground: 0 0% 100%;    /* #FFFFFF */
+
+  --primary2: 349 100% 70%;   /* #ff6b81 */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+  
+  .heading {
+    @apply text-5xl font-bold font-montserrat mb-4;
+  }
+  
+  .subheading {
+    @apply text-muted text-base;
+  }
+  
+  .section {
+    @apply py-20;
+  }
+}
+
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #191919;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fa002e;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1003f;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: #fa002e;
+  color: white;
+} 
