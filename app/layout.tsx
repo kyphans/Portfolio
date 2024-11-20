@@ -4,12 +4,13 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: 'Developer Portfolio Website',
+  description: 'KP Portfolio Website',
 }
 
 interface RootLayoutProps {
@@ -27,11 +28,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="pt-16">
-            {children}
-          </div>
+          <main className="pt-16 pb-24">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 } 

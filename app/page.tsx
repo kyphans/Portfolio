@@ -5,7 +5,6 @@ import ShowCase from '@/components/ShowCase'
 import Blog from '@/components/Blog'
 import TechStack from "@/components/TechStack";
 import RecentWork from '@/components/RecentWork'
-import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Home',
@@ -21,7 +20,6 @@ export default function HomePage() {
       <RecentWork />
       <ShowCase />
       <Blog />
-      <Footer />
     </main>
   );
 }

@@ -43,7 +43,7 @@ const samplePosts = [
 const Blog: FC<BlogProps> = ({ posts = samplePosts }) => {
   return (
     <div className="relative border-none bg-background py-20" id="Blog">
-      <div className="container mb-32">
+      <div className="container">
         <div className="mb-12 text-center">
           <h1 className="mb-4 font-poppins text-5xl font-bold">Latest News</h1>
           <p className="text-[#c6c9d8]">
@@ -90,16 +90,6 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts }) => {
           ))}
         </div>
       </div>
-      <div
-        className="absolute bottom-0 right-0 z-0 h-[110px] w-full"
-        style={{
-          backgroundImage: `url('/divider1.svg')`,
-          backgroundPositionY: "-2px",
-          backgroundRepeat: "repeat-x",
-          objectFit: "cover",
-          transform: "scaleY(-1)",
-        }}
-      />
     </div>
   );
 };
