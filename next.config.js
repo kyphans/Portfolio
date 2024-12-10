@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.ctfassets.net'], // Nếu bạn sử dụng Contentful
+    domains: ['cdn.sanity.io'],
   }
 }
 

@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from 'next-themes'
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
@@ -21,12 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider themes={['pink', 'green']} defaultTheme="pink">
           <Navbar />
           <main className="pt-16 pb-24">{children}</main>
           <Footer />

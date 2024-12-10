@@ -4,10 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { useState } from "react";
+import { useTheme } from 'next-themes'
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme();
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -18,7 +20,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 z-[999] w-full bg-background/70 backdrop-blur-sm">
+    <nav className={`fixed top-0 z-[999] w-full bg-background/70 backdrop-blur-sm ${
+      theme === 'green' ? 'theme-green' : 'theme-pink'
+    }`}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="text-xl font-bold">
           Portfolio
