@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: 'My thoughts and articles',
 }
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function BlogPage() {
   const blogData = await client.fetch(BLOGS_QUERY);
 

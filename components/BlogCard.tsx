@@ -40,7 +40,7 @@ const BlogCard: FC<BlogCardProps> = ({ id, image, category, title, slug, shortDe
           <p className="text-sm text-gray-400">{shortDescription}</p>
           <p className="text-sm text-gray-400 mt-2">Estimated Reading Time: {estimatedReadingTime} mins</p>
           <div className="mt-2 flex flex-wrap gap-2">
-            {hashtags.map((tag) => (
+            {hashtags?.map((tag) => (
               <span key={tag} className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary">#{tag}</span>
             ))}
           </div>

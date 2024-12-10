@@ -3,7 +3,6 @@ import { BLOG_DETAIL_QUERY } from "@/lib/sanity/queries";
 import { PortableText, PortableTextComponents } from '@portabletext/react';
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -55,7 +54,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
       <hr className="my-8" />
       <div className="text-sm text-gray-100">
         Reference Links:{" "}
-        {blog.referenceLink.map((link: string, index: number) => (
+        {blog.referenceLink?.map((link: string, index: number) => (
           <div className="block" key={index}>
             <Link href={link} className="mt-2 text-primary hover:text-primary/80">
               [{link}]
@@ -66,7 +65,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
       <hr className="my-8" />
       <div className="mb-8 text-sm text-gray-100">
         Hashtags:{" "}
-        {blog.hashtags.map((tag: string) => (
+        {blog.hashtags?.map((tag: string) => (
           <span
             key={tag}
             className="mr-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary"
