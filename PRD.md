@@ -40,7 +40,7 @@ The portfolio targets:
 - **Contact Page**: Contact form for inquiries, along with social media links and resume download option.
 
 #### 4.1.2 Dynamic Content
-- **Blog/Articles Page**: Display articles or posts by the developer. Content should be fetched dynamically (e.g., from a CMS like Sanity or Contentful).
+- **Blog/Articles Page**: Display articles or posts by the developer. Content should be fetched dynamically (e.g., from a CMS like Sanity).
 - **Project Details Pages**: Dynamic route pages for each project, rendering detailed project information based on data fetched from an API or CMS.
 
 #### 4.1.3 User Experience Enhancements

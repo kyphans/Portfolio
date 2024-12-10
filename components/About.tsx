@@ -50,10 +50,10 @@ const About: FC<AboutProps> = ({ aboutImage }) => {
                 or randomised words which dont look even slightly believable.
               </p>
               <div className="flex flex-col gap-4 pt-6 md:flex-row">
-                <Button className="h-[55px] w-full bg-primary text-lg capitalize transition-colors duration-300 hover:bg-primary-dark md:w-[195px]">
+                <Button className="h-[55px] w-full bg-primary text-lg capitalize transition-colors duration-300 hover:bg-primary-dark  md:w-[195px]">
                   Download CV
                 </Button>
-                <Button className="h-[55px] w-full bg-primary text-lg capitalize transition-colors duration-300 hover:bg-primary-dark md:w-[195px]">
+                <Button className="h-[55px] w-full bg-primary text-lg capitalize transition-colors duration-300 hover:bg-primary-dark  md:w-[195px]">
                   Hire Me
                 </Button>
               </div>
@@ -64,7 +64,7 @@ const About: FC<AboutProps> = ({ aboutImage }) => {
 
       <button
         onClick={scrollTop}
-        className="fixed bottom-[3%] right-[2%] z-50 flex h-10 w-10 items-center justify-center rounded-full bg-primary transition-colors duration-300 hover:bg-primary-dark"
+        className="fixed bottom-[3%] right-[2%] z-50 flex h-10 w-10 items-center justify-center rounded-full bg-primary  transition-colors duration-300 hover:bg-primary-dark"
         aria-label="Scroll to top"
       >
         <svg

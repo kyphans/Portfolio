@@ -1,4 +1,3 @@
-
 import { FC } from "react";
 
 interface HomeProps {
@@ -30,10 +29,10 @@ const Home: FC<HomeProps> = ({ backgroundImage }) => {
               Hi, I'm Ky Phan.
             </h2>
           </div>
-          <h3 className="mb-2 font-montserrat text-4xl font-extrabold text-primary md:text-6xl">
+          <h3 className="mb-2 font-montserrat text-4xl font-extrabold text-primary  md:text-6xl">
             JS Developer.
           </h3>
-          <h4 className="text-4xl font-extrabold text-primary md:text-6xl">
+          <h4 className="text-4xl font-extrabold text-primary  md:text-6xl">
             based in HCM.
           </h4>
         </div>

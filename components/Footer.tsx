@@ -80,7 +80,7 @@ const Footer: FC = () => {
                     </a>
                   </div>
                   <p className="text-muted">
-                    &copy; {new Date().getFullYear()} Your Name. All rights
+                    &copy; {new Date().getFullYear()} Ky Phan. All rights
                     reserved.
                   </p>
                 </div>

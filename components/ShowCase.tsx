@@ -17,7 +17,7 @@ interface ProjectCardProps extends Project {
   className?: string
 }
 
-const ProjectCard: FC<ProjectCardProps> = ({
+export const ProjectCard: FC<ProjectCardProps> = ({
   title,
   description,
   image,
@@ -63,10 +63,10 @@ const ProjectCard: FC<ProjectCardProps> = ({
         </div>
 
         {/* Hover Content */}
-        <div className="absolute inset-0 flex translate-y-[100%] flex-col justify-end bg-gradient-to-t from-primary to-primary/90 p-6 text-white transition-transform duration-500 group-hover:translate-y-0">
+        <div className="absolute inset-0 flex translate-y-[100%] flex-col justify-end bg-gradient-to-t from-primary to-primary/90 p-6  transition-transform duration-500 group-hover:translate-y-0">
           <h3 className="mb-2 text-xl font-semibold">{title}</h3>
           {description.map((text, index) => (
-            <p key={index} className="text-white/90">
+            <p key={index} className="/90">
               {text}
             </p>
           ))}
