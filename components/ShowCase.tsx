@@ -38,9 +38,11 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         {/* Thumbnail Image */}
         <div className="relative h-[250px] w-full overflow-hidden">
           <Image
+          priority
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>

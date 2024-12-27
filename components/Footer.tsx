@@ -7,7 +7,7 @@ const Footer: FC = () => {
   return (
     <>
       <footer className="relative bg-primary py-12 text-foreground">
-        <div className="before:absolute before:top-[-110px] before:right-0 before:z-0 before:h-[110px] before:w-full before:bg-[url('/divider1.svg')] before:bg-repeat-x before:bg-[position-y:-2px] before:object-cover before:scale-y-[-1]">
+        <div className="before:bg-[position-y:-2px] before:absolute before:right-0 before:top-[-110px] before:z-0 before:h-[110px] before:w-full before:scale-y-[-1] before:bg-[url('/divider1.svg')] before:bg-repeat-x before:object-cover">
           <div className="container">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
               {/* Left Column */}
@@ -55,7 +55,7 @@ const Footer: FC = () => {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="/icons/linkedin.svg"
+                        src="/icons-social/linkedin.svg"
                         alt="LinkedIn"
                         className="h-8 w-8"
                       />
@@ -66,7 +66,7 @@ const Footer: FC = () => {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src="/icons/facebook.svg"
+                        src="/icons-social/facebook.svg"
                         alt="GitHub"
                         className="h-8 w-8"
                       />
@@ -76,7 +76,11 @@ const Footer: FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src="/icons/x.svg" alt="Twitter" className="h-8 w-8" />
+                      <img
+                        src="/icons-social/x.svg"
+                        alt="Twitter"
+                        className="h-8 w-8"
+                      />
                     </a>
                   </div>
                   <p className="text-muted">

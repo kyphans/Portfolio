@@ -4,17 +4,19 @@ import { PortableText, PortableTextComponents } from '@portabletext/react';
 import Image from "next/image";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+// export const dynamic = "force-dynamic";
+export const revalidate = 14400; // 4 hours
 
 const components: PortableTextComponents = {
   types: {
     // Xử lý block image
     image: ({ value }) => {
-      return value.asset?.url ? (
+      const imageUrl = value.asset?.url; // Define a constant for the image URL
+      return imageUrl ? (
         <div className="my-8">
           <Image
-            src={value.asset.url}
+            priority
+            src={imageUrl}
             alt={value.alt || "Blog Image"}
             width={800}
             height={600}
@@ -37,11 +39,13 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
     return <div>Blog not found</div>;
   }
 
+  const imageUrl = blog.images[0]?.asset?.url || "/default-image.png"; // Define a constant for the image URL
+
   return (
     <main className="container py-12">
       <h1 className="mb-8 text-4xl font-bold">{blog.title}</h1>
       <img
-        src={blog.images[0]?.asset?.url || "/default-image.png"}
+        src={imageUrl}
         alt={blog.title}
         className="mb-8 h-auto w-full"
       />

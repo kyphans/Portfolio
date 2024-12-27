@@ -12,53 +12,50 @@ interface GithubRepo {
   language: string | null;
 }
 
-// Mapping tên ngôn ngữ từ Github API sang tên icon của skillicons.dev
+// Mapping tên ngôn ngữ từ Github API sang tên icon
 const skillIconsMapping: { [key: string]: string } = {
-  JavaScript: "js",
-  TypeScript: "ts",
-  Python: "python",
-  Java: "java",
-  "C#": "cs",
-  "C++": "cpp",
-  PHP: "php",
-  Ruby: "ruby",
-  Swift: "swift",
-  Go: "go",
-  Rust: "rust",
-  HTML: "html",
-  CSS: "css",
-  Vue: "vue",
-  React: "react",
-  Angular: "angular",
-  "Next.js": "nextjs",
-  Node: "nodejs",
-  Docker: "docker",
-  Git: "git",
-  MongoDB: "mongodb",
-  PostgreSQL: "postgresql",
-  Redis: "redis",
-  AWS: "aws",
-  Firebase: "firebase",
-  TailwindCSS: "tailwind",
+  JavaScript: "javascript.svg",
+  TypeScript: "typescript.svg", 
+  Python: "python.svg",
+  Java: "java.svg",
+  "C#": "cs.svg",
+  "C++": "cpp.svg",
+  PHP: "php.svg",
+  Ruby: "ruby.svg",
+  Swift: "swift.svg",
+  Go: "go.svg",
+  Rust: "rust.svg",
+  HTML: "html.svg",
+  CSS: "css.svg",
+  Vue: "vue.svg",
+  React: "react.svg",
+  Angular: "angular.svg",
+  "NextJs": "nextjs.svg",
+  Node: "nodejs.svg",
+  Docker: "docker.svg",
+  Git: "git.svg",
+  MongoDB: "mongodb.svg",
+  PostgreSQL: "postgresql.svg",
+  Redis: "redis.svg",
+  AWS: "aws.svg",
+  Firebase: "firebase.svg",
+  TailwindCSS: "tailwindcss.svg",
 };
 
 // Các skill bổ sung
 const additionalSkills = [
-  "css",
-  "nextjs",
-  "nodejs",
-  "docker",
-  "git",
-  "mongodb",
-  "postgresql",
-  "redis",
-  "aws",
-  "firebase",
-  "tailwind",
-].map((skill) => ({
-  name: skill.toUpperCase(),
-  icon: `https://skillicons.dev/icons?i=${skill}`,
-}));
+  { name: "CSS", icon: "/icons/css.svg" },
+  { name: "NEXTJS", icon: "/icons/nextjs.svg" },
+  { name: "NODEJS", icon: "/icons/nodejs.svg" },
+  { name: "DOCKER", icon: "/icons/docker.svg" },
+  { name: "GIT", icon: "/icons/git.svg" },
+  { name: "MONGODB", icon: "/icons/mongodb.svg" },
+  { name: "POSTGRESQL", icon: "/icons/postgresql.svg" },
+  { name: "REDIS", icon: "/icons/redis.svg" },
+  { name: "AWS", icon: "/icons/aws.svg" },
+  { name: "FIREBASE", icon: "/icons/firebase.svg" },
+  { name: "TAILWIND", icon: "/icons/tailwindcss.svg" }
+];
 
 // Tạo danh sách ngôn ngữ từ API và bổ sung
 const generateLanguageList = (repos: GithubRepo[]): Language[] => {
@@ -69,10 +66,10 @@ const generateLanguageList = (repos: GithubRepo[]): Language[] => {
   );
 
   const languageList = Array.from(uniqueLanguages).map((lang: string) => {
-    const skillIcon = skillIconsMapping[lang] || lang.toLowerCase();
+    const skillIcon = skillIconsMapping[lang] || `${lang.toLowerCase()}.svg`;
     return {
       name: lang,
-      icon: `https://skillicons.dev/icons?i=${skillIcon}`,
+      icon: `/icons/${skillIcon}`,
     };
   });
 
@@ -94,7 +91,6 @@ const LanguagesIcon: FC<{ languages: Language[] }> = ({ languages }) => (
           width={96}
           height={96}
           className="object-contain p-2 md:p-4"
-          unoptimized
         />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:paused">
           <span className="rounded bg-background/80 px-2 py-1 text-sm font-medium">
@@ -118,7 +114,7 @@ const ScrollRow: FC<{ direction: "left" | "right"; languages: Language[] }> = ({
 );
 
 const TechStack: FC = () => {
-  const [languages, setLanguages] = useState<Language[]>([]);
+  const [languages, setLanguages] = useState<Language[]>(additionalSkills);
 
   useEffect(() => {
     const fetchLanguages = async () => {
