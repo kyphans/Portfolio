@@ -40,7 +40,7 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
 
         <div className="flex items-center md:hidden">
@@ -82,7 +82,7 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
         </div>
       )}

@@ -29,16 +29,11 @@ export const ProjectCard: FC<ProjectCardProps> = ({
     <div className="group relative rounded-lg bg-gradient-to-r from-primary via-primary/50 to-primary p-[2px] transition-all duration-300 hover:shadow-xl hover:shadow-primary/20">
       {/* Animated border gradient */}
       <div className="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-primary via-primary/50 to-primary opacity-0 blur-sm transition duration-500 group-hover:opacity-70 group-hover:blur" />
-
-      <Link
-        href={demoUrl}
-        target="_blank"
-        className="relative block h-[400px] overflow-hidden rounded-lg bg-background"
-      >
+      <div className="relative block h-[400px] overflow-hidden rounded-lg bg-background">
         {/* Thumbnail Image */}
         <div className="relative h-[250px] w-full overflow-hidden">
           <Image
-          priority
+            priority
             src={image}
             alt={title}
             fill
@@ -65,25 +60,31 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         </div>
 
         {/* Hover Content */}
-        <div className="absolute inset-0 flex translate-y-[100%] flex-col justify-end bg-gradient-to-t from-primary to-primary/90 p-6  transition-transform duration-500 group-hover:translate-y-0">
-          <h3 className="mb-2 text-xl font-semibold">{title}</h3>
-          {description.map((text, index) => (
-            <p key={index} className="/90">
-              {text}
-            </p>
-          ))}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="rounded-full border border-white/30 px-3 py-1 text-xs backdrop-blur-sm"
-              >
-                {tech}
-              </span>
+        <Link
+          href={demoUrl}
+          target="_blank"
+          // className="relative block h-[400px] overflow-hidden rounded-lg bg-background"
+        >
+          <div className="absolute inset-0 flex translate-y-[100%] flex-col justify-end bg-gradient-to-t from-primary to-primary/90 p-6 transition-transform duration-500 group-hover:translate-y-0">
+            <h3 className="mb-2 text-xl font-semibold">{title}</h3>
+            {description.map((text, index) => (
+              <p key={index} className="/90">
+                {text}
+              </p>
             ))}
+            <div className="mt-4 flex flex-wrap gap-2">
+              {technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="rounded-full border border-white/30 px-3 py-1 text-xs backdrop-blur-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 }

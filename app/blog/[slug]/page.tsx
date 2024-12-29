@@ -21,6 +21,7 @@ const components: PortableTextComponents = {
             width={800}
             height={600}
             className="h-auto w-full"
+            unoptimized
           />
         </div>
       ) : null;

@@ -51,8 +51,6 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts, showMore = false }) => {
   useEffect(() => {
     (async () => {
       const blogData = await client.fetch(BLOGS_QUERY);
-      console.log("blogData", blogData);
-
     })();
   }, []);
 
