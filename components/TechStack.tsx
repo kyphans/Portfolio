@@ -132,7 +132,7 @@ const TechStack: FC = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden bg-background py-20" id="Skills">
+    <div className="overflow-hidden bg-background py-6 md:py-20" id="Skills">
       <div className="container relative px-0">
         <div className="absolute inset-y-0 left-0 z-40 w-20 bg-gradient-to-l from-transparent to-background" />
         <div className="absolute inset-y-0 right-0 z-40 w-20 bg-gradient-to-r from-transparent to-background" />

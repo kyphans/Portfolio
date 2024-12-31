@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import BlogCard from '../../components/BlogCard'
 import { client } from "@/lib/sanity/client";
 import { BLOGS_QUERY } from '@/lib/sanity/queries';
+import { Inter_Tight } from "next/font/google";
+
+const interTight = Inter_Tight({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: 'Blog | Portfolio',
@@ -16,10 +20,17 @@ export default async function BlogPage() {
 
   return (
     <main className="container py-12">
-      <h1 className="text-4xl font-bold mb-8">Blog</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="mb-16 w-full">
+        <h1
+          className={`${interTight.className} text-6xl font-bold leading-tight tracking-tight md:text-7xl lg:text-8xl`}
+        >
+          Blogs
+        </h1>
+        <div className="mt-4 h-1 w-24 bg-primary"></div>
+      </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogData.map((blog: any) => {
-          const imageUrl = blog.images[0]?.asset?.url || '/default-image.png'; // Define a constant for the image URL
+          const imageUrl = blog.images[0]?.asset?.url || "/default-image.png"; // Define a constant for the image URL
           return (
             <BlogCard
               key={blog._id}
@@ -37,5 +48,5 @@ export default async function BlogPage() {
         })}
       </div>
     </main>
-  )
+  );
 }

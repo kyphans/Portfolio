@@ -47,7 +47,7 @@ const BlogCard: FC<BlogCardProps> = ({ id, image, category, title, slug, shortDe
             ))}
           </div>
           <Link
-            href={`/blog/${slug}`}
+            href={`/blogs/${slug}`}
             className="inline-block rounded border border-white/80 px-6 py-2 transition-colors duration-300 hover:border-primary hover:bg-primary mt-10"
           >
             Read More

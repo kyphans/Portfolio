@@ -55,7 +55,7 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts, showMore = false }) => {
   }, []);
 
   return (
-    <div className="relative border-none bg-background py-20" id="Blog">
+    <div className="relative border-none bg-background py-6 md:py-20" id="Blog">
       <div className="container">
         <div className="mb-12 text-center">
           <h1 className="mb-4 font-poppins text-5xl font-bold">Latest News</h1>
@@ -93,7 +93,7 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts, showMore = false }) => {
                   </span>
                   <h3 className="mb-4 text-xl font-semibold">{post.title}</h3>
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/blogs/${post.slug}`}
                     className="inline-block rounded border border-white/80 px-6 py-2 transition-colors duration-300 hover:border-primary hover:bg-primary"
                   >
                     Read More
