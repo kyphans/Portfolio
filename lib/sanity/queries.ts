@@ -1,6 +1,6 @@
 import { defineQuery } from 'next-sanity'
 
-export const BLOGS_QUERY = defineQuery(`*[_type == "blog"] | order(_createdAt desc) {
+export const BLOGS_QUERY = defineQuery(`*[_type == "blog"] | order(publishedAt desc) {
   _id,
   title,
   slug,
@@ -13,6 +13,24 @@ export const BLOGS_QUERY = defineQuery(`*[_type == "blog"] | order(_createdAt de
   shortDescription,
   hashtags,
   referenceLink,
+  publishedAt,
+  updatedAt,
+  "author": author-> {
+    name,
+    slug,
+    bio,
+    avatar {
+      asset-> {
+        url
+      }
+    },
+    social
+  },
+  metaTitle,
+  metaDescription,
+  focusKeyword,
+  excerpt,
+  "socialImageUrl": socialImage.asset->url,
   "estimatedReadingTime": round(length(pt::text(detailedDescription)) / 5 / 180)
 }`)
 
@@ -32,25 +50,65 @@ export const PROJECTS_QUERY = defineQuery(`*[_type == "project"] | order(_create
   category
 }`)
 
-export const BLOG_DETAIL_QUERY = defineQuery(`*[_type == "blog" && slug.current == $slug][0] {   
-  _id,   
-  title,   
-  slug,   
-  images[] {     
-    asset-> {       
-      url     
-    }   
-  },   
-  category,   
-  shortDescription,   
-  detailedDescription[]{     
-    ..., 
-    asset-> {       
-      url     
-    },     
-    "imageUrl": asset->url 
-  },   
+export const BLOG_DETAIL_QUERY = defineQuery(`*[_type == "blog" && slug.current == $slug][0] {
+  _id,
+  title,
+  slug,
+  images[] {
+    asset-> {
+      url
+    }
+  },
+  category,
+  shortDescription,
+  detailedDescription[]{
+    ...,
+    asset-> {
+      url
+    },
+    "imageUrl": asset->url
+  },
   hashtags,
   referenceLink,
-  "estimatedReadingTime": round(length(pt::text(detailedDescription)) / 5 / 180) 
+  publishedAt,
+  updatedAt,
+  "author": author-> {
+    name,
+    slug,
+    bio,
+    email,
+    avatar {
+      asset-> {
+        url
+      }
+    },
+    social
+  },
+  metaTitle,
+  metaDescription,
+  focusKeyword,
+  excerpt,
+  "socialImageUrl": socialImage.asset->url,
+  "estimatedReadingTime": round(length(pt::text(detailedDescription)) / 5 / 180)
 }`);
+
+export const RELATED_POSTS_QUERY = defineQuery(`
+  *[_type == "blog" && slug.current != $currentSlug] {
+    _id,
+    title,
+    slug,
+    images[] {
+      asset-> {
+        url
+      }
+    },
+    category,
+    shortDescription,
+    hashtags,
+    referenceLink,
+    publishedAt,
+    "estimatedReadingTime": round(length(pt::text(detailedDescription)) / 5 / 180),
+    "categoryMatch": category == $category,
+    "hashtagMatches": count((hashtags[])[@ in $hashtags])
+  } | order(categoryMatch desc, hashtagMatches desc, publishedAt desc)[0...4]
+`);
