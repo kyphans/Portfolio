@@ -16,10 +16,8 @@ export { metadata, viewport } from 'next-sanity/studio'
 
 export default function StudioPage() {
   return (
-    <div className="flex h-screen w-full flex-col pt-[80px]">
-      <div className="h-[calc(100vh-80px)] w-full overflow-hidden">
-        <NextStudio scheme='dark' config={config} />
-      </div>
+    <div className="h-full w-full">
+      <NextStudio config={config} />
     </div>
   )
 }

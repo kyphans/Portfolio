@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="container flex justify-center py-4">
         <div className="flex h-14 items-center justify-between gap-8 rounded-full bg-white/10 px-8 backdrop-blur-xl shadow-xl shadow-black/30">
           <Link href="/" className="text-lg font-bold text-white hover:text-primary transition-colors">
-            Portfolio
+            Ky.Phan
           </Link>
 
           <div className="hidden items-center gap-6 md:flex">

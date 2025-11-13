@@ -33,8 +33,12 @@ const Footer: FC = () => {
                     />
                   </div>
                   <div className="text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-white sm:text-2xl">Ky Phan</h3>
-                    <p className="text-sm text-gray-400 sm:text-base">Full Stack Developer</p>
+                    <h3 className="text-xl font-bold text-white sm:text-2xl">
+                      Ky Phan
+                    </h3>
+                    <p className="text-sm text-gray-400 sm:text-base">
+                      Full Stack Developer
+                    </p>
                   </div>
                   <div className="sm:ml-auto">
                     <span className="inline-flex items-center gap-2 rounded-full bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-400 sm:px-4 sm:py-2 sm:text-sm">
@@ -87,26 +91,28 @@ const Footer: FC = () => {
                     Stay Connected!
                   </h2>
                   <form className="space-y-3 sm:space-y-4">
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your Email Address"
-                      className="w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
-                    />
+                    <div className="flex gap-4">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
+                      />
+                      <input
+                        type="email"
+                        placeholder="Your Email Address"
+                        className="w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
+                      />
+                    </div>
                     <textarea
                       placeholder="How can I help?"
                       rows={4}
-                      className="w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5 sm:rows-5"
+                      className="sm:rows-5 w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
                     />
                     <button
                       type="submit"
                       className="w-full rounded-xl bg-white py-3 text-sm font-semibold text-gray-900 transition-all hover:bg-gray-100 active:scale-[0.98] sm:py-4 sm:text-base"
                     >
-                      Submit
+                      Send
                     </button>
                   </form>
                 </div>
@@ -114,7 +120,7 @@ const Footer: FC = () => {
               {/* Right Column */}
               <div className="flex flex-col justify-between text-center md:text-right">
                 {/* Copyright Section */}
-                <div className="md:pt-[68px]">
+                <div className="">
                   <p className="mb-4 text-muted">
                     Follow me on social media and get in touch!
                   </p>

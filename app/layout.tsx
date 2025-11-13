@@ -1,11 +1,10 @@
 import { Instrument_Sans } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
-import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import Footer from '@/components/Footer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import LoadingBar from '@/components/LoadingBar'
 
 const instrumentSans = Instrument_Sans({ subsets: ['latin'] })
 
@@ -23,9 +22,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={instrumentSans.className}>
         <ThemeProvider themes={["pink", "green"]} defaultTheme="pink">
-          <Navbar />
-          <main className="pb-24 pt-16">{children}</main>
-          <Footer />
+          <LoadingBar />
+          {children}
         </ThemeProvider>
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />

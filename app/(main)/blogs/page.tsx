@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import BlogCard from '../../components/BlogCard'
+import BlogCard from '@/components/BlogCard'
 import { client } from "@/lib/sanity/client";
 import { BLOGS_QUERY } from '@/lib/sanity/queries';
 import { Inter_Tight } from "next/font/google";
