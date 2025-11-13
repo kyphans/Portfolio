@@ -55,4 +55,12 @@ module.exports = withSentryConfig(module.exports, {
   // https://docs.sentry.io/product/crons/
   // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
+
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  sourcemaps: {
+    disable: false, // Source maps are enabled by default
+    assets: ["**/*.js", "**/*.js.map"], // Specify which files to upload
+    ignore: ["**/node_modules/**"], // Files to exclude
+    deleteSourcemapsAfterUpload: true, // Security: delete after upload
+  },
 });
