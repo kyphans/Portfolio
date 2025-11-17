@@ -21,7 +21,7 @@ const BlogCard: FC<BlogCardProps> = ({ id, image, category, title, slug, shortDe
       className="group relative rounded-lg bg-gradient-to-r from-primary via-primary/50 to-primary p-[2px] transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
     >
       <div className="via-[primary/50 absolute -inset-[1px] rounded-lg bg-gradient-to-r from-primary to-primary opacity-0 blur-sm transition duration-500 group-hover:opacity-70 group-hover:blur" />
-      <div className="relative h-[300px] overflow-hidden rounded-lg bg-[#191919]">
+      <div className="relative h-[300px] overflow-hidden rounded-lg bg-background-card">
         <div className="relative h-full">
           <Image
             priority

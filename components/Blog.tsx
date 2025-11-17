@@ -75,7 +75,7 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts, showMore = false }) => {
             >
               <div className="via-[primary/50 absolute -inset-[1px] rounded-lg bg-gradient-to-r from-primary to-primary opacity-0 blur-sm transition duration-500 group-hover:opacity-70 group-hover:blur" />
 
-              <div className="relative h-[300px] overflow-hidden rounded-lg bg-[#191919]">
+              <div className="relative h-[300px] overflow-hidden rounded-lg bg-background-card">
                 <div className="relative h-full">
                   <Image
                     src={post.image}

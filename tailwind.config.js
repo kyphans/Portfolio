@@ -16,6 +16,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        // Theme colors defined in lib/constants/colors.ts
+        // CSS custom properties defined in app/globals.css
         primary: {
           DEFAULT: "hsl(var(--primary))",
           dark: "hsl(var(--primary-dark))",
@@ -23,6 +25,7 @@ module.exports = {
         },
         primary2: "hsl(var(--primary2))",
         background: "hsl(var(--background))",
+        "background-card": "var(--background-card)",
         foreground: "hsl(var(--foreground))",
         muted: "hsl(var(--muted))",
       },

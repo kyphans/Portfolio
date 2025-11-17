@@ -12,6 +12,8 @@ import {structureTool} from 'sanity/structure'
 import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schemaTypes'
 import {structure} from './sanity/structure'
+// Theme colors are defined in lib/constants/colors.ts (SANITY_THEME_COLORS)
+// URL must be a literal string for import statement
 import { theme } from 'https://themer.sanity.build/api/hues?primary=fa002e&transparent=darkest:101112&positive=darkest:101112&caution=darkest:101112&critical=darkest:101112&darkest=0a0a0a'
 
 export default defineConfig({

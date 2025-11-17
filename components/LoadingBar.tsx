@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes'
 import NextTopLoader from 'nextjs-toploader'
 import { useEffect, useState } from 'react'
+import { THEME_COLORS } from '@/lib/constants/colors'
 
 export default function LoadingBar() {
   const { theme } = useTheme()
@@ -17,13 +18,8 @@ export default function LoadingBar() {
     return null
   }
 
-  // Theme colors
-  const colors = {
-    pink: '#fa002e',
-    green: '#00ff00',
-  }
-
-  const color = theme === 'green' ? colors.green : colors.pink
+  // Get color from theme constants
+  const color = theme === 'green' ? THEME_COLORS.green.primary : THEME_COLORS.pink.primary
 
   return (
     <NextTopLoader
