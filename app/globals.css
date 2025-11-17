@@ -30,7 +30,8 @@
 :root {
   --primary: 349 100% 49%;    /* #fa002e */
   --primary-dark: 349 100% 27%;  /* #d1003f */
-  --background: 0 0% 4%;      
+  --background: 0 0% 4%;      /* #0a0a0a */
+  --background-card: #191919; /* Dark gray for cards/scrollbar - See lib/constants/colors.ts */
   --muted: 222 17% 85%;       /* #c6c9d8 */
   --foreground: 0 0% 100%;    /* #FFFFFF */
 
@@ -40,7 +41,8 @@
 [data-theme="green"] {
   --primary: 120 100% 50%;    /* #00ff00 */
   --primary-dark: 120 100% 25%;  /* #008000 */
-  --background: 0 0% 4%;      
+  --background: 0 0% 4%;      /* #0a0a0a */
+  --background-card: #191919; /* Dark gray for cards/scrollbar - See lib/constants/colors.ts */
   --muted: 222 17% 85%;       /* #c6c9d8 */
   --foreground: 0 0% 100%;    /* #FFFFFF */
   --primary2: 120 100% 70%;   /* #66ff66 */
@@ -101,7 +103,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #191919;
+  background: var(--background-card);
 }
 
 ::-webkit-scrollbar-thumb {

@@ -9,6 +9,7 @@ import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
+import { THEME_COLORS } from '@/lib/constants/colors'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
@@ -36,8 +37,8 @@ export default function CardAnimation() {
               const ctx = canvas.getContext('2d')
               if (ctx) {
                 const gradient = ctx.createRadialGradient(256, 256, 0, 256, 256, 256)
-                gradient.addColorStop(0, 'rgba(236, 72, 153, 0.8)') // primary color
-                gradient.addColorStop(1, 'rgba(236, 72, 153, 0)')
+                gradient.addColorStop(0, THEME_COLORS.pink.accent.rgb)
+                gradient.addColorStop(1, THEME_COLORS.pink.accent.rgbTransparent)
                 ctx.fillStyle = gradient
                 ctx.fillRect(0, 0, 512, 512)
               }
