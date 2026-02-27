@@ -2,8 +2,8 @@
 
 import { FC } from "react";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Mail, MapPin, Linkedin, Facebook, Twitter } from "lucide-react";
 
 const Footer: FC = () => {
   const pathname = usePathname();
@@ -17,152 +17,166 @@ const Footer: FC = () => {
     <>
       <footer className="relative bg-primary py-20 text-foreground">
         <div className="before:bg-[position-y:-2px] before:absolute before:right-0 before:top-[-110px] before:z-0 before:h-[110px] before:w-full before:scale-y-[-1] before:bg-[url('/divider1.svg')] before:bg-repeat-x before:object-cover">
-          <div className="container">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-              {/* Left Column */}
-              <div className="rounded-3xl bg-gradient-to-br from-gray-900 to-black p-4 shadow-2xl sm:p-6 md:p-8">
-                {/* Profile Section */}
-                <div className="mb-6 flex flex-col items-center gap-4 sm:mb-8 sm:flex-row sm:items-start">
-                  <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-full sm:h-20 sm:w-20">
-                    <Image
-                      src="/avt.png"
-                      alt="Profile"
-                      width={80}
-                      height={80}
-                      className="object-cover"
-                    />
+          <div className="container relative z-10">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+              {/* Left Column: Form Card */}
+              <div className="rounded-[40px] bg-[#1a1a1a] p-8 text-left shadow-2xl sm:p-12">
+                <div className="mb-10 flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-start sm:gap-0">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 overflow-hidden rounded-full">
+                      <Image
+                        src="/avt.png"
+                        alt="Profile"
+                        width={64}
+                        height={64}
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">Ky Phan</h3>
+                      <p className="text-sm text-gray-400">
+                        Full Stack Developer
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-white sm:text-2xl">
-                      Ky Phan
-                    </h3>
-                    <p className="text-sm text-gray-400 sm:text-base">
-                      Full Stack Developer
-                    </p>
-                  </div>
-                  <div className="sm:ml-auto">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-400 sm:px-4 sm:py-2 sm:text-sm">
+                  <div className="mt-2 sm:mt-0">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400">
                       <span className="h-2 w-2 rounded-full bg-green-400"></span>
                       Open to Work
                     </span>
                   </div>
                 </div>
 
-                {/* Social Links */}
-                {/* <div className="mb-8 flex flex-wrap gap-3">
-                  <a
-                    href="https://twitter.com/yourprofile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl bg-gray-800/50 px-4 py-2.5 text-sm text-gray-300 transition-all hover:bg-gray-700/50"
-                  >
-                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                    @yourprofile
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/yourprofile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl bg-gray-800/50 px-4 py-2.5 text-sm text-gray-300 transition-all hover:bg-gray-700/50"
-                  >
-                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                    @yourprofile
-                  </a>
-                  <a
-                    href="https://instagram.com/yourprofile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl bg-gray-800/50 px-4 py-2.5 text-sm text-gray-300 transition-all hover:bg-gray-700/50"
-                  >
-                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                    @yourprofile
-                  </a>
-                </div> */}
+                <h2 className="mb-8 text-3xl font-bold text-white">
+                  Stay Connected!
+                </h2>
 
-                {/* Stay Connected Section */}
-                <div className="rounded-2xl bg-gray-800/30 p-4 sm:p-6">
-                  <h2 className="mb-2 text-center text-2xl font-bold text-white sm:text-3xl">
-                    Stay Connected!
-                  </h2>
-                  <form className="space-y-3 sm:space-y-4">
-                    <div className="flex gap-4">
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                        Your Name
+                      </label>
                       <input
                         type="text"
-                        placeholder="Your Name"
-                        className="w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
-                      />
-                      <input
-                        type="email"
-                        placeholder="Your Email Address"
-                        className="w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
+                        placeholder="Ky Phan"
+                        className="w-full rounded-2xl border-0 bg-[#242424] px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
                       />
                     </div>
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="example@domain.com"
+                        className="w-full rounded-2xl border-0 bg-[#242424] px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                      How can I help?
+                    </label>
                     <textarea
-                      placeholder="How can I help?"
+                      placeholder="Tell me about your project..."
                       rows={4}
-                      className="sm:rows-5 w-full rounded-xl border-0 bg-gray-700/50 px-3 py-3 text-sm text-white placeholder-gray-500 transition-all focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary sm:px-4 sm:py-3.5"
+                      className="w-full rounded-2xl border-0 bg-[#242424] px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
                     />
-                    <button
-                      type="submit"
-                      className="w-full rounded-xl bg-white py-3 text-sm font-semibold text-gray-900 transition-all hover:bg-gray-100 active:scale-[0.98] sm:py-4 sm:text-base"
-                    >
-                      Send
-                    </button>
-                  </form>
-                </div>
+                  </div>
+                  <button
+                    type="submit"
+                    className="mt-2 w-full rounded-2xl bg-white py-4 text-sm font-bold tracking-wider text-black transition-colors hover:bg-gray-200"
+                  >
+                    SEND MESSAGE
+                  </button>
+                </form>
               </div>
-              {/* Right Column */}
-              <div className="flex flex-col justify-between text-center md:text-right">
-                {/* Copyright Section */}
-                <div className="">
-                  <p className="mb-4 text-muted">
-                    Follow me on social media and get in touch!
-                  </p>
-                  <div className="mb-4 flex justify-center space-x-4 md:justify-end">
+
+              {/* Right Column: Contact Info */}
+              <div className="flex flex-col justify-center text-left text-white lg:pl-8">
+                <h2 className="mb-6 text-3xl font-bold">Contact Information</h2>
+                <p className="mb-10 text-lg leading-relaxed text-white/90">
+                  Looking to start a new project or just want to say hi? My
+                  inbox is always open. I&apos;ll get back to you as soon as
+                  possible!
+                </p>
+
+                <div className="mb-12 space-y-6">
+                  <div className="flex items-center gap-6">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-white/20">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-white/70">
+                        Email me
+                      </p>
+                      <p className="text-lg font-medium">contact@kyphan.dev</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-6">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-white/20">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-white/70">
+                        Location
+                      </p>
+                      <p className="text-lg font-medium">
+                        Ho Chi Minh City, VN
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="mb-6 text-xs font-bold uppercase tracking-wider text-white">
+                    Follow me on social media!
+                  </h3>
+                  <div className="flex gap-4">
                     <a
                       href="https://www.linkedin.com/in/yourprofile"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 text-white transition-colors hover:bg-white/30"
                     >
-                      <img
-                        src="/icons-social/linkedin.svg"
-                        alt="LinkedIn"
-                        className="h-8 w-8"
-                      />
+                      <Linkedin className="h-5 w-5" />
                     </a>
                     <a
-                      href="https://github.com/yourprofile"
+                      href="https://facebook.com/yourprofile"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 text-white transition-colors hover:bg-white/30"
                     >
-                      <img
-                        src="/icons-social/facebook.svg"
-                        alt="GitHub"
-                        className="h-8 w-8"
-                      />
+                      <Facebook className="h-5 w-5" />
                     </a>
                     <a
                       href="https://twitter.com/yourprofile"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 text-white transition-colors hover:bg-white/30"
                     >
-                      <img
-                        src="/icons-social/x.svg"
-                        alt="Twitter"
-                        className="h-8 w-8"
-                      />
+                      <Twitter className="h-5 w-5" />
                     </a>
                   </div>
-                  <p className="text-muted">
-                    &copy; {new Date().getFullYear()} Ky Phan. All rights
-                    reserved.
-                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Footer */}
+            <div className="mt-20 border-t border-white/20 pt-8">
+              <div className="flex flex-col items-center justify-between gap-4 text-sm text-white/90 sm:flex-row">
+                <p>
+                  &copy; {new Date().getFullYear()} Ky Phan. All rights
+                  reserved.
+                </p>
+                <div className="flex gap-8">
+                  <a href="#" className="hover:text-white">
+                    Privacy Policy
+                  </a>
+                  <a href="#" className="hover:text-white">
+                    Terms of Service
+                  </a>
                 </div>
               </div>
             </div>

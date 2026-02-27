@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useState } from "react";
 import Image from "next/image";
+import { SectionHeader } from "./SectionHeader";
 
 interface Language {
   name: string;
@@ -136,12 +137,12 @@ const TechStack: FC = () => {
       <div className="container relative px-0">
         <div className="absolute inset-y-0 left-0 z-40 w-20 bg-gradient-to-l from-transparent to-background" />
         <div className="absolute inset-y-0 right-0 z-40 w-20 bg-gradient-to-r from-transparent to-background" />
-        <div className="relative z-50 mb-12 text-center">
-          <h1 className="mb-4 text-5xl font-bold">Technical Skills</h1>
-          <p className="text-muted">
-            Technologies I use in my development journey
-          </p>
-        </div>
+        <SectionHeader
+          className="relative z-50 mb-12"
+          subtitle="MY EXPERTISE"
+          title="Technical Skills"
+          description="Technologies I use in my development journey to create scalable and performant web applications."
+        />
 
         {/* Infinite Scroll Container */}
         <div className="relative w-full md:min-h-[240px]">
@@ -157,10 +158,10 @@ const TechStack: FC = () => {
 
           {/* Row 2 - Right to Left */}
           <div className="mt-12 flex space-x-4 overflow-hidden md:space-x-16">
-            <ScrollRow direction="right" languages={languages} />
+            <ScrollRow direction="right" languages={[...languages].reverse()} />
             <ScrollRow
               direction="right"
-              languages={languages}
+              languages={[...languages].reverse()}
               aria-hidden="true"
             />
           </div>
