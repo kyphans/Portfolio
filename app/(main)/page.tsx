@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      <SectionCursor sectionName="Hello to my world">
+      <SectionCursor sectionName="Welcome">
         <Home backgroundImage="/kyphan.jpg" />
       </SectionCursor>
       <SectionCursor sectionName="About Me">
