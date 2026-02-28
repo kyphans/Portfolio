@@ -8,8 +8,6 @@ interface RelatedPost {
   category: string
   shortDescription: string
   hashtags?: string[]
-  referenceLink?: string[]
-  estimatedReadingTime?: number
 }
 
 interface RelatedPostsProps {
@@ -24,7 +22,7 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
   return (
     <section className="mt-16 border-t border-primary/20 pt-12">
       <h2 className="mb-8 text-3xl font-bold">Related Posts</h2>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[280px_auto_1fr_auto] lg:gap-x-6 lg:gap-y-0">
         {posts.map((post) => {
           const imageUrl = post.images[0]?.asset?.url || '/default-image.png'
           return (
@@ -36,9 +34,7 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
               title={post.title}
               slug={post.slug.current}
               shortDescription={post.shortDescription}
-              estimatedReadingTime={post.estimatedReadingTime || 5}
               hashtags={post.hashtags || []}
-              referenceLink={post.referenceLink || []}
             />
           )
         })}

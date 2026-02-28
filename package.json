@@ -23,6 +23,7 @@
     "contentful": "^10.6.21",
     "lucide-react": "^0.575.0",
     "meshline": "^3.3.1",
+    "motion": "^12.34.3",
     "next": "14.2.18",
     "next-sanity": "^9.8.25",
     "next-themes": "0.4.3",

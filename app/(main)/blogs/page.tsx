@@ -53,7 +53,7 @@ export default async function BlogPage() {
         </h1>
         <div className="mt-4 h-1 w-24 bg-primary"></div>
       </div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[280px_auto_1fr_auto] lg:gap-x-6 lg:gap-y-0">
         {blogData.map((blog: any) => {
           const imageUrl = blog.images[0]?.asset?.url || "/default-image.png"; // Define a constant for the image URL
           return (
@@ -65,9 +65,7 @@ export default async function BlogPage() {
               title={blog.title}
               slug={blog.slug.current}
               shortDescription={blog.shortDescription}
-              estimatedReadingTime={blog.estimatedReadingTime}
               hashtags={blog.hashtags}
-              referenceLink={blog.referenceLink}
             />
           );
         })}

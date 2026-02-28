@@ -1,10 +1,8 @@
 "use client";
 
 import { FC, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Clock, Heart, ArrowRight } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
+import BlogCard from "./BlogCard";
 import { client } from "@/lib/sanity/client";
 import { BLOGS_QUERY } from "@/lib/sanity/queries";
 
@@ -14,12 +12,8 @@ interface BlogPost {
   category: string;
   title: string;
   slug: string;
-  excerpt?: string;
-  estimatedReadingTime?: number;
-  readTime?: string;
-  likes?: number;
-  referenceLink?: string;
-  hashtags?: string[];
+  shortDescription: string;
+  hashtags: string[];
 }
 
 interface BlogProps {
@@ -34,8 +28,9 @@ const samplePosts: BlogPost[] = [
     category: "Development",
     title: "Web Development Best Practices in 2024",
     slug: "web-development-best-practices",
-    readTime: "5 min read",
-    likes: 124,
+    shortDescription:
+      "Explore the latest best practices in web development to build faster, more accessible, and maintainable applications.",
+    hashtags: ["WebDev", "BestPractices"],
   },
   {
     id: "2",
@@ -43,8 +38,9 @@ const samplePosts: BlogPost[] = [
     category: "Design",
     title: "UI/UX Design Principles for Better Conversions",
     slug: "ui-ux-design-principles",
-    readTime: "8 min read",
-    likes: 210,
+    shortDescription:
+      "Learn key UI/UX design principles that can significantly improve your website's conversion rates.",
+    hashtags: ["UIUX", "Design"],
   },
   {
     id: "3",
@@ -52,8 +48,9 @@ const samplePosts: BlogPost[] = [
     category: "Technology",
     title: "Latest Tech Trends: What's coming next?",
     slug: "latest-tech-trends",
-    readTime: "12 min read",
-    likes: 45,
+    shortDescription:
+      "Stay ahead of the curve with insights into emerging technologies shaping the future of software development.",
+    hashtags: ["Tech", "Trends"],
   },
 ];
 
@@ -80,52 +77,18 @@ const Blog: FC<BlogProps> = ({ posts = samplePosts, showMore = false }) => {
           }
         />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[280px_auto_1fr_auto] lg:gap-x-10 lg:gap-y-0">
           {posts.map((post) => (
-            <div
+            <BlogCard
               key={post.id}
-              className="group flex flex-col overflow-hidden rounded-[32px] bg-[#1c1c1c] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50"
-            >
-              <div className="relative h-[280px] w-full shrink-0 overflow-hidden bg-white/5">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute left-6 top-6 rounded-full bg-primary px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-lg">
-                  {post.category}
-                </div>
-              </div>
-
-              <div className="flex flex-1 flex-col p-8 sm:p-10">
-                <div className="mb-6 flex items-center gap-6 text-sm text-gray-400">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4" />
-                    <span>{post.readTime || "5 min read"}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Heart className="h-4 w-4" />
-                    <span>{post.likes || 124}</span>
-                  </div>
-                </div>
-
-                <h3 className="mb-8 line-clamp-2 text-2xl font-bold leading-snug text-white">
-                  {post.title}
-                </h3>
-
-                <div className="mt-auto">
-                  <Link
-                    href={`/blogs/${post.slug}`}
-                    className="group/link inline-flex items-center gap-3 text-sm font-bold text-primary transition-colors hover:text-white"
-                  >
-                    Read More
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                  </Link>
-                </div>
-              </div>
-            </div>
+              id={post.id}
+              image={post.image}
+              category={post.category}
+              title={post.title}
+              slug={post.slug}
+              shortDescription={post.shortDescription}
+              hashtags={post.hashtags}
+            />
           ))}
         </div>
 

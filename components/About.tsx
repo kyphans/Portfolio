@@ -4,6 +4,7 @@ import { FC } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "./SectionHeader";
+import { MagicText } from "@/components/ui/magic-text";
 
 interface AboutProps {
   aboutImage: string;
@@ -20,14 +21,14 @@ const About: FC<AboutProps> = ({ aboutImage }) => {
   return (
     <div className="section bg-background" id="About">
       <div className="container">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-          <div className="flex h-full max-h-[400px] w-full items-center justify-center">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          <div className="flex w-full items-center justify-center self-center">
             <Image
               src={aboutImage}
               alt="About me"
               width={450}
               height={450}
-              className="h-full max-h-[450px] rounded-lg object-contain"
+              className="max-h-[450px] rounded-lg object-contain"
               priority
             />
           </div>
@@ -39,21 +40,10 @@ const About: FC<AboutProps> = ({ aboutImage }) => {
               title="About Me"
             />
             <div className="space-y-4">
-              <p className="text-muted">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered in some form, by injected humour,
-                or randomised words which dont look even slightly believable.
-              </p>
-              <p className="text-muted">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered in some form, by injected humour,
-                or randomised words which dont look even slightly believable.
-              </p>
-              <p className="text-muted">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered in some form, by injected humour,
-                or randomised words which dont look even slightly believable.
-              </p>
+              <MagicText
+                text={`I'm a passionate Software Engineer with expertise in building modern web applications. I specialize in React, Next.js, TypeScript, and Node.js, creating scalable and performant solutions that deliver exceptional user experiences.\nWith a strong foundation in both frontend and backend development, I bring ideas to life through clean code and thoughtful architecture. I'm constantly learning and exploring new technologies to stay at the forefront of web development.`}
+                className="text-muted"
+              />
               <div className="flex flex-col gap-4 pt-6 md:flex-row">
                 <Button className="h-[55px] w-full bg-primary text-lg capitalize transition-colors duration-300 hover:bg-primary-dark md:w-[195px]">
                   Download CV

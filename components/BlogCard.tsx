@@ -1,58 +1,80 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 interface BlogCardProps {
   id: string;
   image: string;
-  category: string;
+  category?: string;
   title: string;
   slug: string;
   shortDescription: string;
-  estimatedReadingTime: number;
   hashtags: string[];
-  referenceLink: string[];
 }
 
-const BlogCard: FC<BlogCardProps> = ({ id, image, category, title, slug, shortDescription, estimatedReadingTime, hashtags, referenceLink }) => {
+const BlogCard: FC<BlogCardProps> = ({
+  id,
+  image,
+  category,
+  title,
+  slug,
+  shortDescription,
+  hashtags,
+}) => {
   return (
     <div
       key={id}
-      className="group relative rounded-lg bg-gradient-to-r from-primary via-primary/50 to-primary p-[2px] transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
+      className="group flex flex-col overflow-hidden rounded-[32px] bg-[#1a1a1a] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 lg:row-span-4 lg:grid lg:grid-rows-subgrid"
     >
-      <div className="via-[primary/50 absolute -inset-[1px] rounded-lg bg-gradient-to-r from-primary to-primary opacity-0 blur-sm transition duration-500 group-hover:opacity-70 group-hover:blur" />
-      <div className="relative h-[300px] overflow-hidden rounded-lg bg-background-card">
-        <div className="relative h-full">
-          <Image
-            priority
-            src={image}
-            alt={title}
-            fill
-            sizes="(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 translate-y-[calc(100%-4rem)] transform bg-gradient-to-t from-black/80 to-transparent p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
-          <span className="mb-2 block text-sm uppercase">
+      {/* Image with Category Badge */}
+      <div className="relative h-[280px] w-full overflow-hidden bg-white/5 lg:h-full">
+        <Image
+          priority
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {category && (
+          <div className="absolute left-6 top-6 rounded-full bg-primary px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-lg">
             {category}
-          </span>
-          <h3 className="mb-4 text-xl font-semibold">{title}</h3>
-          <p className="text-sm text-gray-400">{shortDescription}</p>
-          <p className="text-sm text-gray-400 mt-2">Estimated Reading Time: {estimatedReadingTime} mins</p>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {hashtags?.map((tag) => (
-              <span key={tag} className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary">#{tag}</span>
-            ))}
           </div>
-          <Link
-            href={`/blogs/${slug}`}
-            className="inline-block rounded border border-white/80 px-6 py-2 transition-colors duration-300 hover:border-primary hover:bg-primary mt-10"
-          >
-            Read More
-          </Link>
+        )}
+      </div>
+
+      {/* Title */}
+      <h3 className="px-8 pt-8 text-2xl font-bold leading-snug text-white sm:px-10 sm:pt-10">
+        {title}
+      </h3>
+
+      {/* Description + Meta */}
+      <div className="flex flex-1 flex-col gap-3 px-8 pb-4 sm:px-10 lg:flex-none">
+        <p className="text-[15px] leading-relaxed text-gray-400">
+          {shortDescription}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {hashtags?.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary"
+            >
+              #{tag}
+            </span>
+          ))}
         </div>
+      </div>
+
+      {/* Link */}
+      <div className="mt-auto flex items-end px-8 pb-8 pt-4 sm:px-10 sm:pb-10 lg:mt-0">
+        <Link
+          href={`/blogs/${slug}`}
+          className="group/link inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary transition-colors hover:text-white"
+        >
+          Read More
+          <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+        </Link>
       </div>
     </div>
   );

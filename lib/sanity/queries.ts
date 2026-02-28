@@ -12,7 +12,6 @@ export const BLOGS_QUERY = defineQuery(`*[_type == "blog"] | order(publishedAt d
   category,
   shortDescription,
   hashtags,
-  referenceLink,
   publishedAt,
   updatedAt,
   "author": author-> {
@@ -30,8 +29,7 @@ export const BLOGS_QUERY = defineQuery(`*[_type == "blog"] | order(publishedAt d
   metaDescription,
   focusKeyword,
   excerpt,
-  "socialImageUrl": socialImage.asset->url,
-  "estimatedReadingTime": round(length(pt::text(detailedDescription)) / 5 / 180)
+  "socialImageUrl": socialImage.asset->url
 }`)
 
 export const PROJECTS_QUERY = defineQuery(`*[_type == "project"] | order(_createdAt desc) [0...20] {
@@ -105,9 +103,7 @@ export const RELATED_POSTS_QUERY = defineQuery(`
     category,
     shortDescription,
     hashtags,
-    referenceLink,
     publishedAt,
-    "estimatedReadingTime": round(length(pt::text(detailedDescription)) / 5 / 180),
     "categoryMatch": category == $category,
     "hashtagMatches": count((hashtags[])[@ in $hashtags])
   } | order(categoryMatch desc, hashtagMatches desc, publishedAt desc)[0...4]

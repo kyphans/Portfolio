@@ -29,9 +29,10 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 }) => {
   return (
     <div
-      className={`group flex flex-col overflow-hidden rounded-[32px] bg-[#1a1a1a] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 ${className || ""}`}
+      className={`group flex flex-col overflow-hidden rounded-[32px] bg-[#1a1a1a] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 lg:row-span-5 lg:grid lg:grid-rows-subgrid ${className || ""}`}
     >
-      <div className="relative h-[280px] w-full shrink-0 overflow-hidden bg-white/5">
+      {/* Image */}
+      <div className="relative h-[280px] w-full overflow-hidden bg-white/5 lg:h-full">
         <Image
           src={image}
           alt={title}
@@ -41,36 +42,38 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         />
       </div>
 
-      <div className="flex flex-1 flex-col p-8 sm:p-10">
-        <div className="mb-4 flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-wider">
-          {technologies.length > 0 && (
-            <span className="text-primary">{technologies[0]}</span>
-          )}
-          {technologies.length > 1 && (
-            <span className="text-gray-500">
-              {technologies.slice(1).join(" ")}
-            </span>
-          )}
-        </div>
+      {/* Technologies */}
+      <div className="flex flex-wrap items-center gap-2 px-8 pt-8 text-[11px] font-bold uppercase tracking-wider sm:px-10 sm:pt-10">
+        {technologies.length > 0 && (
+          <span className="text-primary">{technologies[0]}</span>
+        )}
+        {technologies.length > 1 && (
+          <span className="text-gray-500">
+            {technologies.slice(1).join(" ")}
+          </span>
+        )}
+      </div>
 
-        <h3 className="mb-4 text-2xl font-bold leading-snug text-white">
-          {title}
-        </h3>
+      {/* Title */}
+      <h3 className="px-8 text-2xl font-bold leading-snug text-white sm:px-10">
+        {title}
+      </h3>
 
-        <div className="mb-8 text-[15px] leading-relaxed text-gray-400">
-          {description.join(" ")}
-        </div>
+      {/* Description */}
+      <div className="flex-1 px-8 text-[15px] leading-relaxed text-gray-400 sm:px-10 lg:flex-none">
+        {description.join(" ")}
+      </div>
 
-        <div className="mt-auto">
-          <Link
-            href={demoUrl}
-            target="_blank"
-            className="group/link inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary transition-colors hover:text-white"
-          >
-            View Case Study
-            <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-          </Link>
-        </div>
+      {/* Link */}
+      <div className="mt-auto flex items-end px-8 pb-8 sm:px-10 sm:pb-10 lg:mt-0">
+        <Link
+          href={demoUrl}
+          target="_blank"
+          className="group/link inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary transition-colors hover:text-white"
+        >
+          View Case Study
+          <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+        </Link>
       </div>
     </div>
   );
@@ -119,7 +122,7 @@ const ShowCase: FC = () => {
           description="Click on any project to see the live demo and detailed technical case study."
         />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[280px_auto_auto_1fr_auto] lg:gap-x-10 lg:gap-y-0">
           {projects.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
